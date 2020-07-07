@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Signin Template for Bootstrap</title>
+        <!-- Bootstrap core CSS -->
+        <link href="static/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="static/sign-in.css" rel="stylesheet">
+    </head>
+    <body class="text-center">
+        <form class="form-signin" method="post" action="/login">
+            <img class="mb-4" src="static/icon-75.png" alt="" width="80" height="115">
+            {% if session.login_note %}
+            <p class="red-text">Вам пришла записка!</p>
+            {% endif %}
+            {% if session.login_failed %}
+            <p class="red-text">Не удалось войти в систему!</p>
+            {% endif %}
+            {% if session.login_invalid %}
+            <p class="red-text">Не удалось войти в систему!</p>
+            {% endif %}
+            {% if session.login_timeout %}
+            <p class="red-text">Таймаут сеанса! Войдите повторно!</p>
+            {% endif %}
+            {% if session.login_auth %}
+            <p class="red-text">Чтобы посмотреть записку, надо войти в систему!</p>
+            {% endif %}
+
+            <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="text" id="inputEmail" class="form-control" required autofocus name="user" placeholder="Имя пользователя" value="default">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" required name="pass" placeholder="Пароль">
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"{% if session.remember %} checked{%endif%}> Запомни меня
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+            <div class="mb-3">
+                <p>
+                    <br>
+                    <a class="red-text" href="/cancel">Отмена</a>
+                </p>
+            </div>
+            <p class="mt-5 mb-3 text-muted">&copy; 2320 by Sabaka</p>
+        </form>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="static/assets/js/jquery.min.js"></script>
+        <script src="static/assets/js/popper.js"></script>
+        <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

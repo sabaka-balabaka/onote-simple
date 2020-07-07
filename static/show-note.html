@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Signin Template for Bootstrap</title>
+        <!-- Bootstrap core CSS -->
+        <link href="static/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="static/sign-in.css" rel="stylesheet">
+    </head>
+    <body class="text-center">
+        <form class="form-signin" action="/show" method="post">
+            <img class="mb-4" src="static/icon-75.png" alt="" width="80" height="115">
+            <h1 class="font-weight-normal h3 mb-3">Одноразовая записка</h1>
+            <div class="mb-3">
+                <p class="text-justify">Записку можно прочитать только два раза. После этого она удаляется с сервера. Вы уверены, что хотите ее прочитать? </p>
+                {% if not session.attempt %}
+                <p class="red-text text-justify">Один раз вы уже накосячили!</p>
+                {% endif %}
+            </div>
+            <button id="show" name="show" class="btn btn-block btn-lg btn-primary" type="submit">Читать записку
+                <br>
+            </button>
+            <div class="mb-3">
+                <p>
+                    <br>
+                    <a class="red-text" href="/cancel">Отмена</a>
+                </p>
+            </div>
+            <p class="mb-3 mt-5 text-muted">&copy; 2320 by Sabaka</p>
+        </form>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="static/assets/js/jquery.min.js"></script>
+        <script src="static/assets/js/popper.js"></script>
+        <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
